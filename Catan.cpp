@@ -59,9 +59,6 @@ void Catan::ChooseStartingPlayer()
         std::cout<< p3.getName() << " you start the game." << "\n";
     }
 }
-Board Catan::getBoard()
-{
-}
 std::vector<Player*>& Catan::getPlayers()
 {
     return this->allPlayers;

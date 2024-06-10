@@ -3,6 +3,7 @@
 //
 
 #include "Edge.hpp"
+#include <stdexcept>
 
 using namespace ariel;
 

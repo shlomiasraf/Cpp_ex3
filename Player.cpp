@@ -5,7 +5,7 @@
 #include "Player.hpp"
 #include <iostream>
 #include <random>
-
+#include <algorithm> 
 #include "Catan.hpp"
 
 using namespace ariel;

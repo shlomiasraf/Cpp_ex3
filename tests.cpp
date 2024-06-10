@@ -3,7 +3,7 @@
 #include <sstream>
 #include <iostream>
 
-#include <String>
+#include <string>
 #include "Catan.hpp"
 #include "Player.hpp"
 

@@ -1,5 +1,6 @@
 #include "Vertex.hpp"
 #include <unordered_map>
+#include <stdexcept>
 
 #include "Edge.hpp"
 using namespace ariel;

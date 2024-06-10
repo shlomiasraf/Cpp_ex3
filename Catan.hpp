@@ -20,7 +20,6 @@ namespace ariel
     public:
         Catan(Player&, Player&, Player&);
         void ChooseStartingPlayer();
-        Board getBoard();
         std::vector<Player*>& getPlayers();
         void rollDice(Player*);
         bool buyDevelopmentCard(Player*);
