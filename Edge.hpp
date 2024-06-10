@@ -17,22 +17,22 @@ namespace ariel
     private:
         Vertex& Vertex1;
         Vertex& Vertex2;
-        std::vector<Edge> neighborsEdge;
+        std::vector<Edge*> neighborsEdge;
         std::string RoadOwner;
         static std::unordered_map<std::string, Edge> allEdges;
     public:
-        Edge();
         Edge(Vertex&, Vertex&);
+        static Edge& createEdge(Vertex&, Vertex&);
         static Edge& getEdge(Vertex&, Vertex&);
         std::string getRoadOwner();
         bool EdgeNearSettelemntOrCity();
         bool nearRoad();
-        void addRoad(std::string player);
-        void addNeighborEdge(Edge);
+        void addRoad(std::string);
+        void addNeighborEdge(Edge&);
         Vertex& getVertex1();
         Vertex& getVertex2();
-        bool operator==(Edge other);
-
+        bool operator==(Edge);
+        std::vector<Edge*> getNeighborsEdge();
     };
 }
 

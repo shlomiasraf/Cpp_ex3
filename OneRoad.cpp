@@ -1,3 +1,7 @@
+//
+// Created by Shlomi Asraf on 10/06/2024.
+//
+
 /**
  * Demo file for Ex3.
  *
@@ -44,8 +48,7 @@ int main()
     allPlayers[0]->placeSettelemnt(Vertex::getVertex(0,4));
     allPlayers[0]->placeRoad(Edge::getEdge(Vertex::getVertex(0,4),Vertex::getVertex(-1,5)));
 
-    int i = 0;
-    while(!catan.gameIsEnding())
+    for(int i = 0; i < allPlayers.size(); i++)
     {
         catan.rollDice(allPlayers[i]);
         allPlayers[i]->TradeWhatNeeded(allPlayers);
@@ -56,17 +59,6 @@ int main()
             allPlayers[i]->useDevelopmentCard(allPlayers);
         }
         allPlayers[i]->placeRoads();
-        if(i < 2)
-        {
-            i++;
-        }
-        else
-        {
-            i = 0;
-        }
     }
-    allPlayers[0]->printPoints();
-    allPlayers[1]->printPoints();
-    allPlayers[2]->printPoints();
-
 }
+

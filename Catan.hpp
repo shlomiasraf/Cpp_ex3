@@ -15,15 +15,17 @@ namespace ariel
         Player& p1;
         Player& p2;
         Player& p3;
-        std::vector<Player> allPlayers;
+        std::vector<Player*> allPlayers;
+        std::vector<DevelopmentCard> allDevelopmentCards;
     public:
         Catan(Player&, Player&, Player&);
         void ChooseStartingPlayer();
         Board getBoard();
-        void printWinner();
-        std::vector<Player>getPlayers();
-        void rollDice();
-
+        std::vector<Player*>& getPlayers();
+        void rollDice(Player*);
+        bool buyDevelopmentCard(Player*);
+        bool gameIsEnding();
+        DevelopmentCard GetDevelopmentCard();
     };
 }
 

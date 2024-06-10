@@ -11,7 +11,7 @@ Edge::Edge(Vertex& V1, Vertex& V2)
 : Vertex1(V1), Vertex2(V2)
 {
 }
-Edge& Edge::getEdge(Vertex& v1, Vertex& v2)
+Edge& Edge::createEdge(Vertex& v1, Vertex& v2)
 {
     std::string edgeKey1 = std::to_string(v1.getX()) + "," + std::to_string(v1.getY()) +  "," + std::to_string(v2.getX()) + "," + std::to_string(v2.getY());
     std::string edgeKey2 = std::to_string(v2.getX()) + "," + std::to_string(v2.getY()) +  "," + std::to_string(v1.getX()) + "," + std::to_string(v1.getY());
@@ -28,19 +28,37 @@ Edge& Edge::getEdge(Vertex& v1, Vertex& v2)
     }
     // Create a new edge if it doesn't exist
     Edge newEdge(v1, v2);
-    auto result = allEdges.emplace(edgeKey1, Edge(v1, v2));
+    auto result = allEdges.emplace(edgeKey1, newEdge);
     return result.first->second;
+}
+Edge& Edge::getEdge(Vertex& v1, Vertex& v2)
+{
+    std::string edgeKey1 = std::to_string(v1.getX()) + "," + std::to_string(v1.getY()) +  "," + std::to_string(v2.getX()) + "," + std::to_string(v2.getY());
+    std::string edgeKey2 = std::to_string(v2.getX()) + "," + std::to_string(v2.getY()) +  "," + std::to_string(v1.getX()) + "," + std::to_string(v1.getY());
+
+    auto it = allEdges.find(edgeKey1);
+    if (it != allEdges.end())
+    {
+        return it->second;
+    }
+    it = allEdges.find(edgeKey2);
+    if (it != allEdges.end())
+    {
+        return it->second;
+    }
+    throw std::out_of_range("this edge " + edgeKey1 + " isn't on the board.");
+
 }
 std::string Edge::getRoadOwner()
 {
     return this->RoadOwner;
 }
-void Edge::addNeighborEdge(Edge neighborEdge)
+void Edge::addNeighborEdge(Edge& neighborEdge)
 {
     bool contains = false;
     for(int i = 0; i < this->neighborsEdge.size(); i++)
     {
-        if(neighborEdge == this->neighborsEdge[i])
+        if(neighborEdge == *this->neighborsEdge[i])
         {
             contains = true;
             break;
@@ -48,18 +66,18 @@ void Edge::addNeighborEdge(Edge neighborEdge)
     }
     if(!contains)
     {
-        this->neighborsEdge.push_back(neighborEdge);
+        this->neighborsEdge.push_back(&neighborEdge);
     }
 }
-void Edge::addRoad(std::string playerName)
+void Edge::addRoad(std::string playerColor)
 {
-    this->RoadOwner = playerName;
+    this->RoadOwner = playerColor;
 }
 bool Edge::nearRoad()
 {
     for (int i = 0; i < this->neighborsEdge.size(); i++)
     {
-        if(this->neighborsEdge[i].getRoadOwner() == this->RoadOwner)
+        if(this->neighborsEdge[i]->getRoadOwner() == this->RoadOwner)
         {
             return true;
         }
@@ -86,3 +104,8 @@ bool Edge::operator==(Edge other)
 {
     return (this->Vertex1 == other.getVertex1() && this->Vertex2 == other.getVertex2()) || (this->Vertex1 == other.getVertex2() && this->Vertex2 == other.getVertex1());
 }
+std::vector<Edge*> Edge::getNeighborsEdge()
+{
+    return this->neighborsEdge;
+}
+

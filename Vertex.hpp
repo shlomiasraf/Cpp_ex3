@@ -14,27 +14,28 @@ namespace ariel
         int y;
         std::string SettelemntOwner;
         std::string CityOwner;
-        std::vector<Vertex> neighborsVertex;
+        std::vector<Vertex*> neighborsVertex;
         std::unordered_map<int,std::string> resourcesAndCoins;
         static std::unordered_map<std::string, Vertex> vertexMap;
 
     public:
         Vertex();
-        Vertex(int x, int y);
+        Vertex(int,int);
         int getX();
         int getY();
         std::string GetSettelemntOwner();
         std::string GetCityOwner();
-        void addCity(std::string& playerName);
-        void addResourceAndCoin(std::string& resource, int coinNumber);
-        void addSettelemnt(std::string& playerName);
-        void addNeighborVertex(Vertex neighborVertex);
+        void addCity(std::string);
+        void addResourceAndCoin(std::string,int);
+        void addSettelemnt(std::string);
+        void addNeighborVertex(Vertex&);
         bool VertexNearRoad();
         bool nearSettelemntOrCity();
         std::unordered_map<int,std::string> getResourcesAndCoins();
-        static Vertex& getVertex(int x, int y);
-
-        bool operator==(Vertex other);
+        static Vertex& createVertex(int,int);
+        static Vertex& getVertex(int,int);
+        std::vector<Vertex*> getNeighborsVertex();
+        bool operator==(Vertex);
     };
 }
 

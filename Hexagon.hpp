@@ -21,7 +21,9 @@ namespace ariel
             int coinNumber;
         public:
             Hexagon();
-            Hexagon(std::vector<Vertex>, std::vector<Edge>, std::string, int);
+            Hexagon(std::vector<Vertex>, std::vector<Edge*>, std::string, int);
+            std::vector<Vertex> getVertexs();
+            std::vector<Edge> getEdges();
     };
 }
 #endif //HEXAGON_HPP
