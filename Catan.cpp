@@ -67,8 +67,11 @@ void Catan::rollDice(Player* player1)
 {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(2, 12);
-    int randomNumber = dis(gen);
+    std::uniform_int_distribution<> dis(1, 6);
+    int cube1 = dis(gen);
+    std::uniform_int_distribution<> dis2(1, 6);
+    int cube2 = dis2(gen);
+    int randomNumber = cube1 + cube2;
     player1->ChangeToHisTurn(allPlayers);
     for(Player* player : this->allPlayers)
     {
