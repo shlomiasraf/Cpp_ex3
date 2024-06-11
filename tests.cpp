@@ -1,3 +1,4 @@
+
 #include "doctest.h"
 #include "Board.hpp"
 #include <sstream>
@@ -111,6 +112,6 @@ TEST_CASE("Test all the game")
     CHECK(allPlayers[1]->getDevelopmentCards()[0].name == developmentCard1);
 
     //check if game ending.
-    CHECK(catan.gameIsEnding() == false);
+    CHECK(catan.gameIsEnding(allPlayers[0]) == false);
 
 }

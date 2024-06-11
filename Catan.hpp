@@ -23,7 +23,7 @@ namespace ariel
         std::vector<Player*>& getPlayers();
         void rollDice(Player*);
         bool buyDevelopmentCard(Player*);
-        bool gameIsEnding();
+        bool gameIsEnding(Player*);
         DevelopmentCard GetDevelopmentCard();
     };
 }

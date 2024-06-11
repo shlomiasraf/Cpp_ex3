@@ -45,7 +45,7 @@ int main()
     allPlayers[0]->placeRoad(Edge::getEdge(Vertex::getVertex(0,4),Vertex::getVertex(-1,5)));
 
     int i = 0;
-    while(!catan.gameIsEnding())
+    while(!catan.gameIsEnding(allPlayers[i]))
     {
         catan.rollDice(allPlayers[i]);
         allPlayers[i]->TradeWhatNeeded(allPlayers);

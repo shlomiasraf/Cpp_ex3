@@ -122,15 +122,12 @@ void Catan::rollDice(Player* player1)
     }
     std::cout<< "the roll dice in " << player1->getName() << "'s turn " << "with color " << player1->getColor() <<  " is: " << randomNumber << "\n";
 }
-bool Catan::gameIsEnding()
+bool Catan::gameIsEnding(Player* player)
 {
-    for(Player* player : this->allPlayers)
+    if(player->getTotalPoints() >= 10)
     {
-        if(player->getTotalPoints() >= 10)
-        {
-            std::cout<< player->getName() << " with color " << player->getColor() <<  " you win the game! congratulations" <<  "\n";
-            return true;
-        }
+        std::cout<< player->getName() << " with color " << player->getColor() <<  " you win the game! congratulations" <<  "\n";
+        return true;
     }
     return false;
 }
