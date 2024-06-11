@@ -1,3 +1,6 @@
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
+
 #ifndef CARD_HPP
 #define CARD_HPP
 
