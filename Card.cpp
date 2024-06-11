@@ -1,6 +1,5 @@
-//
-// Created by Shlomi Asraf on 29/05/2024.
-//
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
 
 #include "Card.hpp"
 using namespace ariel;
