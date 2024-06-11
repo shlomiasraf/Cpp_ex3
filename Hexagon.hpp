@@ -1,6 +1,5 @@
-//
-// Created by Shlomi Asraf on 28/05/2024.
-//
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
 
 #ifndef HEXAGON_HPP
 #define HEXAGON_HPP
