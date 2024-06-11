@@ -1,11 +1,6 @@
-//
-// Created by Shlomi Asraf on 10/06/2024.
-//
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
 
-/**
- * Demo file for Ex3.
- *
- */
 #include <iostream>
 #include <stdexcept>
 #include <vector>
