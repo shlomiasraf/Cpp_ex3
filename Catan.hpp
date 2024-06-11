@@ -1,6 +1,5 @@
-//
-// Created by Shlomi Asraf on 28/05/2024.
-//
+/* ID: 207970252
+    Mail: Shlomi55577@gmail.com */
 
 #ifndef CATAN_HPP
 #define CATAN_HPP
