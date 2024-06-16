@@ -36,6 +36,9 @@ catanvalgrind: oneRoad
 testvalgrind: testCounter
 	valgrind --tool=memcheck $(VALGRIND_FLAGS) ./testCounter 2>&1 | { egrep "lost| at " || true; }
 
+demovalgrind: demo
+	valgrind --tool=memcheck $(VALGRIND_FLAGS) ./demo 2>&1
+
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
