@@ -30,8 +30,10 @@ oneRoad: $(OBJECTSOneRoad)
 tidy:
 	clang-tidy $(SOURCES) -checks=bugprone-*,clang-analyzer-*,cppcoreguidelines-*,performance-*,portability-*,readability-*,-cppcoreguidelines-pro-bounds-pointer-arithmetic,-cppcoreguidelines-owning-memory --warnings-as-errors=-* --
 
-valgrind: demo testCounter
-	valgrind --tool=memcheck $(VALGRIND_FLAGS) ./demo 2>&1 | { egrep "lost| at " || true; }
+catanvalgrind: oneRoad
+	valgrind --tool=memcheck $(VALGRIND_FLAGS) ./oneRoad 2>&1 | { egrep "lost| at " || true; }
+
+testvalgrind: testCounter
 	valgrind --tool=memcheck $(VALGRIND_FLAGS) ./testCounter 2>&1 | { egrep "lost| at " || true; }
 
 %.o: %.cpp
